@@ -13,7 +13,7 @@ st.set_page_config(page_title="Prediksi Sentimen", page_icon="💬", layout="wid
 model_paths = {
     "Model SVM Kernel Linear": "/content/drive/MyDrive/Colab Notebooks/#KaburAjaDulu/svm_linear.joblib_fix",
     "Model SVM Kernel Sigmoid": "/content/drive/MyDrive/Colab Notebooks/#KaburAjaDulu/svm_sig.joblib_fix",
-    "Model SVM Kernel Polynomial": "/content/drive/MyDrive/Colab Notebooks/#KaburAjaDulu/svm_sig.joblib_fix"
+    "Model SVM Kernel Polynomial": "/content/drive/MyDrive/Colab Notebooks/#KaburAjaDulu/svm_poly.joblib_fix"
 }
 
 # === Fungsi load model ===
@@ -32,7 +32,7 @@ for name, path in model_paths.items():
 # === Mapping label angka ke teks ===
 label_map = {
     0: "Negatif",
-    1: "Negatif",
+    1: "Netral",
     2: "Positif",
 }
 
@@ -59,6 +59,8 @@ if st.button("🔍 Prediksi"):
             st.success(f"✅ Prediksi: **{label}**")
             if label == "Negatif":
                 st.markdown("⚠️ *Sentimen negatif. Perlu perhatian lebih lanjut.*")
+            elif label == "Netral":
+                st.markdown("ℹ️ *Sentimen netral. Tidak terlalu berpengaruh.*")
             elif label == "Positif":
                 st.markdown("🎉 *Sentimen positif! Bagus untuk perkembangan aplikasi!*")
 
